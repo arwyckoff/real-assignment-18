@@ -1,11 +1,43 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="./dist/css/styles.css">
+	<title>Land of Ice, Land of Wonder</title>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"crossorigin="anonymous">
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>	<link rel="stylesheet" type="text/css" href="./dist/css/styles.css">
 </head>
 <body>
-	<div id="app-container"><h1>I &#10084; u baby shampu</h1></div>
+	<div id="app-container">
+		<div class="headspace">
+			<h1>FACTS About Iceland</h1>
+		</div>
+		<div class='row nav'>
+			<div class='col-sm-3 navbar active' data-route='home'>
+				<button class="btn btn-block home">Home</button>
+			</div>
+			<div class='col-sm-3 navbar' data-route='concerts'>
+				<button class="btn btn-block concerts">Concerts</button>
+			</div>
+			<div class='col-sm-3 navbar' data-route='carpools'>
+				<button class="btn btn-block carpools">Carpools</button>
+			</div>
+			<div class='col-sm-3 navbar' data-route='flights'>
+				<button class="btn btn-block flights">Flights</button>
+			</div>
+		</div>
+		<div class='mainView'>
+			<div class='home'>
+			</div>
+			<div class='concerts'>
+			</div>
+			<div class='carpools'>
+			</div>
+			<div class='flights'>
+			</div>
+		</div>
+	</div>
 	<script type="text/javascript" src="./dist/js/app.js"></script>
 </body>
 </html>
