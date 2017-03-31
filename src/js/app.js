@@ -99,7 +99,6 @@ function renderTo(domEl, currentRoute){
                   <th>To</th>
                 </thead>`
       carpoolDrivers.then(function(serverRes){
-        console.log(serverRes);
         forEach(serverRes.results, function(dataobj){
         htmlString += `
                   <tbody>
@@ -189,30 +188,24 @@ function renderTo(domEl, currentRoute){
 }
 
 nav.addEventListener('click', function(evt){
-  console.log('BANG')
   let renderHereAlso = document.querySelector('.mainView')
-  // let daRooooooooooot = window.location.hash.slice(1)
   let clickTarg = evt.target
 	let route = clickTarg.dataset.route
   window.location.hash = route
 
   if (clickTarg.classList.contains('home') === true){
-    console.log('Let me go home!')
     window.location.hash = 'home'
     renderTo(renderHereAlso, window.location.hash.slice(1))
   }
   if (clickTarg.classList.contains('flights') === true){
-    console.log("I'll fly away!")
     window.location.hash = 'flights'
     renderTo(renderHereAlso, window.location.hash.slice(1))
   }
   if (clickTarg.classList.contains('carpools') === true){
-    console.log('Life is a highway!')
     window.location.hash = 'carpools'
     renderTo(renderHereAlso,window.location.hash.slice(1))
   }
   if (clickTarg.classList.contains('concerts') === true){
-    console.log('For those about to rock!')
     window.location.hash = 'concerts'
     renderTo(renderHereAlso,window.location.hash.slice(1))
   }
