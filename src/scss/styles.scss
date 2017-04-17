@@ -8,34 +8,65 @@ body{
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 0;
 	height: 100vw;
+	z-index: 1;
 }
 
-button {
-
+.background-con{
+	background-image: url("http://www.worldatlas.com/webimage/flags/countrys/zzzflags/islarge.gif");
+	background-size: cover;
+	right: 0;
+	position: fixed;
+	top:0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
 }
+.background-white{
+	position: fixed;
+	right: 0;
+	top:0;
+	bottom: 0;
+	left: 0;
+	background: rgba(238, 238, 238, .8);
+	z-index: -1;
+}
+
 
 table {
-	border-right: 3px solid black;
-	border-left: 3px solid black;
 	width: 80%;
+	background-color: rgba(250, 250, 250, 0.8);
 	text-align: center;
 	margin-left: 10%;
 	margin-right: 10%;
+	border-right: 3px solid black;
+	border-left: 3px solid black;
 }
+.flight{
+	width: 100%;
+	margin: 0px;
+	background-color: rgba(250, 250, 250, 0.8);
+	border: none;
+	text-align: center;
 
+}
 th {
+	width:100%;
 	border-top: none;
 	font-weight: lighter;
-	font-size: 24px;
+	padding-left:10px;
+	font-size: 14px;
 }
 
 tr {
-	padding-right: 0px;
+	font-size: 14px;
 	border-top: 1px solid black;
 	border-spacing: 0px;
 	text-align: left;
-	font-size: 14px;
 	margin: auto;
+}
+
+td{
+	padding: 10px;
 }
 
 #app-container {
@@ -43,29 +74,26 @@ tr {
 	width: 100%;
 }
 
-.headspace {
+.header {
 	height: 10%;
+	margin: auto;
 	text-align: center;
 	background-color: #333;
 	color: #fff;
 	font-weight: 100;
 	padding: 10px;
-	margin: auto;
 }
 
 .nav {
-	width: 100%;
 }
 
 .navbar {
-	padding-left: 10px;
 	text-align: center;
 	padding: 0;
-	border: 10px solid white;
-	border-radius: 0px;
 }
 
 .btn {
+	background-color:rgba(221,221,221,0.8);
 	border-radius: 0;
 }
 
@@ -81,5 +109,44 @@ tr {
 
 .active{
 	display: inherit;
-	background-color: red;
+}
+
+.panel{
+	padding:10px;
+	border-right:thick black solid;
+	border-left: thick black solid;
+	margin-left: 10%;
+	margin-right: 10%;
+	width:80%;
+	background-color: rgba(250,250,250,0.8);
+}
+.table-header{
+	font-weight:lighter;
+	background:#F2DEDE;
+	font-size:24px;
+	margin-bottom:30px;
+}
+
+.info{
+	font-size:12px;
+}
+h4{
+	font-size:14px;
+}
+.centered{
+	margin:0px;
+	padding:0px;
+}
+.carpool-table{
+	border:none;
+}
+.flights-panel-heading{
+	font-size:20px;
+	background-color: rgba(217,237,248,0.8)
+}
+.flights-container{
+	border-right:thick black solid;
+	border-left: thick black solid;
+	width:80%;
+	background-color: rgba(250,250,250,0.8);
 }

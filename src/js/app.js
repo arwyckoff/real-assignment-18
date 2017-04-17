@@ -6,12 +6,13 @@ function forEach(arr, cb){
 }
 
 
-let arrivals= $.getJSON('http://apis.is/flight?language=en&type=arrivals')
-let departures = $.getJSON('http://apis.is/flight?language=en&type=departures')
+
+let nav = document.querySelector('.nav')
 let carpoolDrivers = $.getJSON('http://apis.is/rides/samferda-drivers/')
 let carpoolPass = $.getJSON('http://apis.is/rides/samferda-passengers/')
 let concerts = $.getJSON('http://apis.is/concerts')
-let nav = document.querySelector('.nav')
+let arrivals= $.getJSON('http://apis.is/flight?language=en&type=arrivals')
+let departures = $.getJSON('http://apis.is/flight?language=en&type=departures')
 let wasActive = document.querySelector(`[class="col-sm-3 navbar active"]`)
 let isActive = document.querySelector(`[class="col-sm-3 navbar"]`)
 
@@ -23,7 +24,7 @@ let currentRoute = window.location.hash.slice(1)
 let appRouter = function(){
   	if(currentRoute === 'undefined'){
     }
-  	let renderHere = document.querySelector('.mainView')
+  	let renderHere = document.querySelector('.appbody')
   	makeActive(currentRoute)
   	renderTo(renderHere, window.location.hash.slice(1))
 }
@@ -33,9 +34,7 @@ function renderTo(domEl, currentRoute){
   if(currentRoute === "home"){
     htmlString =`
     <table>
-      <tr>
-        <th>The Basic Facts</th>
-      </tr>
+        <th class="table-header" colspan="2">The Basic Facts</th>
       <tr>
         <td>Native Name</td>
         <td>Island</td>
@@ -61,7 +60,7 @@ function renderTo(domEl, currentRoute){
       htmlString += `
         <div class="panel panel-default">
           <div class="panel-body">
-            CONCERTS
+            <div class="table-header">CONCERTS</div>
           </div>
           <div class="row">`
       concerts.then(function(serverRes){
@@ -89,10 +88,10 @@ function renderTo(domEl, currentRoute){
         htmlString += `
           <div class=row>
             <div class="panel panel-default">
-              <div class="panel-heading">
+              <div class="table-header">
                 CARPOOLS
               </div>
-              <table class="table">
+              <table class=" carpool-table table centered">
                 <thead>
                   <th>Time of Departure</th>
                   <th>From</th>
@@ -118,19 +117,19 @@ function renderTo(domEl, currentRoute){
   }
   if(currentRoute === "flights"){
     htmlString += `
-    <div class='container-fluid flights-container'>
-      <div class="panel panel-default">
-        <div class="panel-body">
+    <div class='panel container-fluid flights-container'>
+      <div class="flights-header">
+        <div class="table-header">
           FLIGHTS
         </div>
       </div>
       <div class='row'>
         <div class="col-md-6 flights-columns">
-          <div class="panel panel-default flights-content">
-            <div class="panel-heading flights-panel-heading">
+          <div class="flights-content">
+            <div class="flights-panel-heading">
               Arrivals
             </div>
-            <table class="table">
+            <table class="flight">
               <thead>
                 <th>Date</th>
                 <th>Arrival Time</th>
@@ -154,11 +153,11 @@ function renderTo(domEl, currentRoute){
           </div>
         </div>
         <div class="col-md-6 flights-columns">
-          <div class="panel panel-default flights-content">
-            <div class="panel-heading flights-panel-heading">
+          <div class="flights-content">
+            <div class="flights-panel-heading">
               Departures
             </div>
-            <table class="table">
+            <table class=" flight">
               <thead>
                 <th>Date</th>
                 <th>Departure Time</th>
@@ -168,6 +167,7 @@ function renderTo(domEl, currentRoute){
 
     forEach(serverResDepartures[0].results, function(dataobj){
       htmlString += `
+
               <tbody>
                 <tr>
                  <td>${dataobj.date}</td>
@@ -178,6 +178,7 @@ function renderTo(domEl, currentRoute){
               </body>`
     })
       htmlString += `
+
             </table>
           </div>
         </div>
@@ -187,8 +188,9 @@ function renderTo(domEl, currentRoute){
     }
 }
 
+//working//
 nav.addEventListener('click', function(evt){
-  let renderHereAlso = document.querySelector('.mainView')
+  let renderHereAlso = document.querySelector('.appbody')
   let clickTarg = evt.target
 	let route = clickTarg.dataset.route
   window.location.hash = route
